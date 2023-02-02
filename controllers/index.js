@@ -115,11 +115,13 @@ router.put('/', (request, response)=>{
 // Delete route
 // Delete route cannot receive a body, can only receive a parameter
 router.delete('/:id', (request, response)=>{
+    
+    // True or false flag logic, locally scoped within this delete route
+    let foundUser = false
+    
     // Select user by ID within the users array
     users = users.filter((user)=>{
 
-        // True or false flag logic, locally scoped within this delete route
-        let foundUser = false
 
         // When the id of the request params matches the user id
         // Returning false means that this entry will be unincluded in the users array
